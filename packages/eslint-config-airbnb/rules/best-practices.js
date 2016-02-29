@@ -12,15 +12,15 @@ module.exports = {
     // require return statements to either always or never specify values
     'consistent-return': 2,
     // specify curly brace conventions for all control statements
-    'curly': [2, 'multi-line'],
+    'curly': [2, 'multi-line', 'consistent'],
     // require default case in switch statements
     'default-case': 2,
     // encourages use of dot notation whenever possible
     'dot-notation': [2, { 'allowKeywords': true }],
     // enforces consistent newlines before or after dots
-    'dot-location': 0,
+    'dot-location': [2, 'property'],
     // require the use of === and !==
-    'eqeqeq': 2,
+    'eqeqeq': [2, 'allow-null'],
     // make sure for-in loops have an if statement
     'guard-for-in': 2,
     // Blacklist certain identifiers to prevent them being used
@@ -36,7 +36,7 @@ module.exports = {
     // disallow division operators explicitly at beginning of regular expression
     'no-div-regex': 0,
     // disallow else after a return in an if
-    'no-else-return': 2,
+    'no-else-return': 0,
     // disallow Unnecessary Labels
     // http://eslint.org/docs/rules/no-extra-label
     'no-extra-label': 2,
@@ -112,7 +112,7 @@ module.exports = {
     // http://eslint.org/docs/rules/no-unused-labels
     'no-unused-labels': 2,
     // disallow unnecessary .call() and .apply()
-    'no-useless-call': 0,
+    'no-useless-call': 2,
     // disallow use of void operator
     'no-void': 0,
     // disallow usage of configurable warning terms in comments: e.g. todo

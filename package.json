@@ -1,5 +1,5 @@
 {
-  "name": "airbnb-style",
+  "name": "25th-style",
   "version": "2.0.0",
   "description": "A mostly reasonable approach to JavaScript.",
   "scripts": {
@@ -8,11 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airbnb/javascript.git"
+    "url": "https://github.com/25th-floor/javascript.git"
   },
   "keywords": [
     "style guide",
     "lint",
+    "25th-floor",
     "airbnb",
     "es6",
     "es2015",
@@ -22,7 +23,7 @@
   "author": "Harrison Shoff <hi@hshoff.com> (https://twitter.com/hshoff)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airbnb/javascript/issues"
+    "url": "https://github.com/25th-floor/javascript/issues"
   },
-  "homepage": "https://github.com/airbnb/javascript"
+  "homepage": "https://github.com/25th-floor/javascript"
 }

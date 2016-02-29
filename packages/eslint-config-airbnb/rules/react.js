@@ -23,18 +23,21 @@ module.exports = {
     // Enforce or disallow spaces inside of curly braces in JSX attributes
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
     'react/jsx-curly-spacing': [0, 'never', { 'allowMultiline': true }],
+    // Enforce or disallow spaces around JSX attribute assignments
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
+    'react/jsx-equals-spacing': [2, 'never'],
     // Enforce event handler naming conventions in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
-    'react/jsx-handler-names': [0, {
+    'react/jsx-handler-names': [2, {
       'eventHandlerPrefix': 'handle',
       'eventHandlerPropPrefix': 'on',
     }],
     // Validate props indentation in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
-    'react/jsx-indent-props': [2, 2],
+    'react/jsx-indent-props': [2, 4],
     // Validate JSX has key prop when in array or iterator
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
-    'react/jsx-key': 0,
+    'react/jsx-key': 2,
     // Limit maximum of props on a single line in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
     'react/jsx-max-props-per-line': [0, { 'maximum': 1 }],
@@ -43,7 +46,7 @@ module.exports = {
     'react/jsx-no-bind': 2,
     // Prevent duplicate props in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
-    'react/jsx-no-duplicate-props': [0, { 'ignoreCase': false }],
+    'react/jsx-no-duplicate-props': [2, { 'ignoreCase': true }],
     // Prevent usage of unwrapped JSX strings
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
     'react/jsx-no-literals': 0,
@@ -52,7 +55,7 @@ module.exports = {
     'react/jsx-no-undef': 2,
     // Enforce PascalCase for user-defined JSX components
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
-    'react/jsx-pascal-case': 0,
+    'react/jsx-pascal-case': 2,
     // Enforce propTypes declarations alphabetical sorting
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
     'react/sort-prop-types': [0, {
@@ -85,7 +88,7 @@ module.exports = {
     'react/no-did-update-set-state': [2, 'allow-in-func'],
     // Prevent direct mutation of this.state
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
-    'react/no-direct-mutation-state': 0,
+    'react/no-direct-mutation-state': 2,
     // Prevent usage of isMounted
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
     'react/no-is-mounted': 2,
@@ -121,20 +124,43 @@ module.exports = {
     'react/jsx-space-before-closing': [2, 'always'],
     // Enforce component methods order
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
-    'react/sort-comp': [2, {
+    'react/sort-comp': [1, {
       'order': [
         'static-methods',
         'lifecycle',
-        '/^on.+$/',
+        '/^handle.+$/',
         '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
         'everything-else',
         '/^render.+$/',
         'render'
-      ]
+      ],
+      groups: {
+        lifecycle: [
+          'displayName',
+          'propTypes',
+          'contextTypes',
+          'childContextTypes',
+          'mixins',
+          'statics',
+          'defaultProps',
+          'state',
+          'constructor',
+          'getDefaultProps',
+          'getInitialState',
+          'getChildContext',
+          'componentWillMount',
+          'componentDidMount',
+          'componentWillReceiveProps',
+          'shouldComponentUpdate',
+          'componentWillUpdate',
+          'componentDidUpdate',
+          'componentWillUnmount'
+        ]
+      }
     }],
     // Prevent missing parentheses around multilines JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md
-    'react/wrap-multilines': [2, {
+    'react/wrap-multilines': [0, {
       declaration: true,
       assignment: true,
       return: true

@@ -32,18 +32,18 @@
     ```javascript
     // bad
     const Listing = React.createClass({
-      // ...
-      render() {
-        return <div>{this.state.hello}</div>;
-      }
+        // ...
+        render() {
+            return <div>{this.state.hello}</div>;
+        }
     });
 
     // good
     class Listing extends React.Component {
-      // ...
-      render() {
-        return <div>{this.state.hello}</div>;
-      }
+        // ...
+        render() {
+            return <div>{this.state.hello}</div>;
+        }
     }
     ```
 
@@ -53,34 +53,34 @@
 
     // bad
     class Listing extends React.Component {
-      render() {
-        return <div>{this.props.hello}</div>;
-      }
+        render() {
+            return <div>{this.props.hello}</div>;
+        }
     }
 
     // bad (since arrow functions do not have a "name" property)
     const Listing = ({ hello }) => (
-      <div>{hello}</div>
+        <div>{hello}</div>
     );
 
     // good
     function Listing({ hello }) {
-      return <div>{hello}</div>;
+        return <div>{hello}</div>;
     }
     ```
 
 ## Naming
 
-  - **Extensions**: Use `.jsx` extension for React components.
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+  - **Extensions**: Use `.js` extension for React components.
+  - **Filename**: Use kebab-case for filenames. E.g., `reservation-card.js`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```javascript
     // bad
-    import reservationCard from './ReservationCard';
+    import reservationCard from './reservation-card';
 
     // good
-    import ReservationCard from './ReservationCard';
+    import ReservationCard from './reservation-card';
 
     // bad
     const ReservationItem = <ReservationCard />;
@@ -89,17 +89,17 @@
     const reservationItem = <ReservationCard />;
     ```
 
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+  - **Component Naming**: Use the filename as the component name. For example, `reservation-card.jsx` should have a reference name of `ReservationCard`. For root components of a directory, use `index.js` as the filename and use the directory name as the component name:
 
     ```javascript
     // bad
-    import Footer from './Footer/Footer';
+    import Footer from './footer/footer';
 
     // bad
-    import Footer from './Footer/index';
+    import Footer from './footer/index';
 
     // good
-    import Footer from './Footer';
+    import Footer from './footer';
     ```
 
 ## Declaration
@@ -109,8 +109,8 @@
     ```javascript
     // bad
     export default React.createClass({
-      displayName: 'ReservationCard',
-      // stuff goes here
+        displayName: 'ReservationCard',
+        // stuff goes here
     });
 
     // good
@@ -129,8 +129,8 @@
 
     // good
     <Foo
-      superLongParam="bar"
-      anotherSuperLongParam="baz"
+        superLongParam="bar"
+        anotherSuperLongParam="baz"
     />
 
     // if props fit in one line then keep it on the same line
@@ -138,10 +138,10 @@
 
     // children get indented normally
     <Foo
-      superLongParam="bar"
-      anotherSuperLongParam="baz"
+        superLongParam="bar"
+        anotherSuperLongParam="baz"
     >
-      <Quux />
+        <Quux />
     </Foo>
     ```
 
@@ -185,6 +185,16 @@
     <Foo />
     ```
 
+  - Never add spaces around attribute assignment operators.
+
+   ```
+   // bad
+   <Foo bar = "bar" blubb= "blubb"  />
+
+   // good
+   <Foo bar="bar" blubb="blubb" />
+   ```
+
 ## Props
 
   - Always use camelCase for prop names.
@@ -192,14 +202,14 @@
     ```javascript
     // bad
     <Foo
-      UserName="hello"
-      phone_number={12345678}
+        UserName="hello"
+        phone_number={12345678}
     />
 
     // good
     <Foo
-      userName="hello"
-      phoneNumber={12345678}
+        userName="hello"
+        phoneNumber={12345678}
     />
     ```
 
@@ -208,13 +218,35 @@
     ```javascript
     // bad
     <Foo
-      hidden={true}
+        hidden={true}
     />
 
     // good
     <Foo
-      hidden
+        hidden
     />
+    ```
+
+  - Specify a key prop when creating an array of components. The key should be natural, if possible. eslint: [`react/jsx-key`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md)
+
+  > Why? Otherwise, React is not able to identify components when rerendering.
+  > Not only does this render an ugly warning, it also kills rendering performance.
+
+    ```javascript
+    // bad
+    <ul>
+        {items.map(item => <li>{item.text}</li>)}
+    </ul>
+
+    // good, if there is no natural key
+    <ul>
+        {items.map((item, i) => <li key={i}>{item.text}</li>)}
+    </ul>
+
+    // better, if there is a natural key
+    <ul>
+        {items.map(item => <li key={item.id}>{item.text}</li>)}
+    </ul>
     ```
 
 ## Parentheses
@@ -232,16 +264,16 @@
     // good
     render() {
       return (
-        <MyComponent className="long body" foo="bar">
-          <MyChild />
-        </MyComponent>
+          <MyComponent className="long body" foo="bar">
+              <MyChild />
+          </MyComponent>
       );
     }
 
     // good, when single line
     render() {
-      const body = <div>hello</div>;
-      return <MyComponent>{body}</MyComponent>;
+        const body = <div>hello</div>;
+        return <MyComponent>{body}</MyComponent>;
     }
     ```
 
@@ -262,17 +294,45 @@
     ```javascript
     // bad
     <Foo
-      bar="bar"
-      baz="baz" />
+        bar="bar"
+        baz="baz" />
 
     // good
     <Foo
-      bar="bar"
-      baz="baz"
+        bar="bar"
+        baz="baz"
     />
     ```
 
 ## Methods
+
+  - Prefix event handlers with "handle". eslint: [`react/jsx-handler-names`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md)
+
+  > Why? This makes it easier to find methods that are referenced in the rendered view.
+
+    ```javascript
+    // bad
+    class extends React.Component {
+        onClick() {
+            // do stuff
+        }
+
+        render() {
+            return <button onClick={this.onClick} />
+        }
+    }
+
+    // good
+    class extends React.Component {
+        handleClick() {
+            // do stuff
+        }
+
+        render() {
+            return <button onClick={this.handleClick} />
+        }
+    }
+    ```
 
   - Bind event handlers for the render method in the constructor. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
@@ -281,30 +341,48 @@
     ```javascript
     // bad
     class extends React.Component {
-      onClickDiv() {
-        // do stuff
-      }
+        handleClickDiv() {
+            // do stuff
+        }
 
-      render() {
-        return <div onClick={this.onClickDiv.bind(this)} />
-      }
+        render() {
+            return <div onClick={this.handleClickDiv.bind(this)} />
+        }
     }
 
     // good
     class extends React.Component {
-      constructor(props) {
-        super(props);
+        constructor(props) {
+            super(props);
 
-        this.onClickDiv = this.onClickDiv.bind(this);
-      }
+            this.handleClickDiv = this.handleClickDiv.bind(this);
+        }
 
-      onClickDiv() {
-        // do stuff
-      }
+        handleClickDiv() {
+            // do stuff
+        }
 
-      render() {
-        return <div onClick={this.onClickDiv} />
-      }
+        render() {
+            return <div onClick={this.handleClickDiv} />
+        }
+    }
+
+    // better
+    // in case es6-function-bind is possible
+    class extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.handleClickDiv = ::this.handleClickDiv;
+        }
+
+        handleClickDiv() {
+            // do stuff
+        }
+
+        render() {
+            return <div onClick={this.handleClickDiv} />
+        }
     }
     ```
 
@@ -313,20 +391,20 @@
     ```javascript
     // bad
     React.createClass({
-      _onClickSubmit() {
-        // do stuff
-      },
+        _handleClickSubmit() {
+            // do stuff
+        },
 
-      // other stuff
+        // other stuff
     });
 
     // good
     class extends React.Component {
-      onClickSubmit() {
-        // do stuff
-      }
+        handleClickSubmit() {
+            // do stuff
+        }
 
-      // other stuff
+        // other stuff
     }
     ```
 
@@ -355,23 +433,23 @@
     import React, { PropTypes } from 'react';
 
     const propTypes = {
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string,
+        id: PropTypes.number.isRequired,
+        url: PropTypes.string.isRequired,
+        text: PropTypes.string,
     };
 
     const defaultProps = {
-      text: 'Hello World',
+        text: 'Hello World',
     };
 
     class Link extends React.Component {
-      static methodsAreOk() {
-        return true;
-      }
+        static methodsAreOk() {
+            return true;
+        }
 
-      render() {
-        return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
-      }
+        render() {
+            return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
+        }
     }
 
     Link.propTypes = propTypes;

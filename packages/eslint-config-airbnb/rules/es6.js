@@ -16,7 +16,7 @@ module.exports = {
     // http://eslint.org/docs/rules/arrow-body-style
     'arrow-body-style': [2, 'as-needed'],
     // require parens in arrow function arguments
-    'arrow-parens': 0,
+    'arrow-parens': [2, 'as-needed'],
     // require space before/after arrow function's arrow
     // https://github.com/eslint/eslint/blob/master/docs/rules/arrow-spacing.md
     'arrow-spacing': [2, { 'before': true, 'after': true }],
@@ -54,7 +54,7 @@ module.exports = {
     // suggest using of const declaration for variables that are never modified after declared
     'prefer-const': 2,
     // suggest using the spread operator instead of .apply()
-    'prefer-spread': 0,
+    'prefer-spread': 2,
     // suggest using Reflect methods where applicable
     'prefer-reflect': 0,
     // use rest parameters instead of arguments

@@ -1,15 +1,11 @@
-# Airbnb JavaScript Style Guide() {
+# 25th-floor JavaScript Style Guide
 
 *A mostly reasonable approach to JavaScript*
-
-[![Downloads](https://img.shields.io/npm/dm/eslint-config-airbnb.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+*based on the amazing [AirBnB style guide](https://github.com/airbnb/javascript). Thanks guys!*
 
 Other Style Guides
- - [ES5](es5/)
  - [React](react/)
  - [CSS & Sass](https://github.com/airbnb/css)
- - [Ruby](https://github.com/airbnb/ruby)
 
 ## Table of Contents
 
@@ -109,13 +105,13 @@ Other Style Guides
     // bad
     var count = 1;
     if (true) {
-      count += 1;
+        count += 1;
     }
 
     // good, use the let.
     let count = 1;
     if (true) {
-      count += 1;
+        count += 1;
     }
     ```
 
@@ -124,8 +120,8 @@ Other Style Guides
     ```javascript
     // const and let only exist in the blocks they are defined in.
     {
-      let a = 1;
-      const b = 1;
+        let a = 1;
+        const b = 1;
     }
     console.log(a); // ReferenceError
     console.log(b); // ReferenceError
@@ -150,14 +146,14 @@ Other Style Guides
     ```javascript
     // bad
     const superman = {
-      default: { clark: 'kent' },
-      private: true,
+        default: { clark: 'kent' },
+        private: true,
     };
 
     // good
     const superman = {
-      defaults: { clark: 'kent' },
-      hidden: true,
+        defaults: { clark: 'kent' },
+        hidden: true,
     };
     ```
 
@@ -166,17 +162,17 @@ Other Style Guides
     ```javascript
     // bad
     const superman = {
-      class: 'alien',
+        class: 'alien',
     };
 
     // bad
     const superman = {
-      klass: 'alien',
+        klass: 'alien',
     };
 
     // good
     const superman = {
-      type: 'alien',
+        type: 'alien',
     };
     ```
 
@@ -188,21 +184,21 @@ Other Style Guides
     ```javascript
 
     function getKey(k) {
-      return `a key named ${k}`;
+        return `a key named ${k}`;
     }
 
     // bad
     const obj = {
-      id: 5,
-      name: 'San Francisco',
+        id: 5,
+        name: 'San Francisco',
     };
     obj[getKey('enabled')] = true;
 
     // good
     const obj = {
-      id: 5,
-      name: 'San Francisco',
-      [getKey('enabled')]: true,
+        id: 5,
+        name: 'San Francisco',
+        [getKey('enabled')]: true,
     };
     ```
 
@@ -212,20 +208,20 @@ Other Style Guides
     ```javascript
     // bad
     const atom = {
-      value: 1,
+        value: 1,
 
-      addValue: function (value) {
-        return atom.value + value;
-      },
+        addValue: function (value) {
+            return atom.value + value;
+        },
     };
 
     // good
     const atom = {
-      value: 1,
+        value: 1,
 
-      addValue(value) {
-        return atom.value + value;
-      },
+        addValue(value) {
+            return atom.value + value;
+        },
     };
     ```
 
@@ -239,12 +235,12 @@ Other Style Guides
 
     // bad
     const obj = {
-      lukeSkywalker: lukeSkywalker,
+        lukeSkywalker: lukeSkywalker,
     };
 
     // good
     const obj = {
-      lukeSkywalker,
+        lukeSkywalker,
     };
     ```
 
@@ -258,22 +254,22 @@ Other Style Guides
 
     // bad
     const obj = {
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      lukeSkywalker,
-      episodeThree: 3,
-      mayTheFourth: 4,
-      anakinSkywalker,
+        episodeOne: 1,
+        twoJediWalkIntoACantina: 2,
+        lukeSkywalker,
+        episodeThree: 3,
+        mayTheFourth: 4,
+        anakinSkywalker,
     };
 
     // good
     const obj = {
-      lukeSkywalker,
-      anakinSkywalker,
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      episodeThree: 3,
-      mayTheFourth: 4,
+        lukeSkywalker,
+        anakinSkywalker,
+        episodeOne: 1,
+        twoJediWalkIntoACantina: 2,
+        episodeThree: 3,
+        mayTheFourth: 4,
     };
     ```
 
@@ -284,16 +280,16 @@ Other Style Guides
   ```javascript
   // bad
   const bad = {
-    'foo': 3,
-    'bar': 4,
-    'data-blah': 5,
+      'foo': 3,
+      'bar': 4,
+      'data-blah': 5,
   };
 
   // good
   const good = {
-    foo: 3,
-    bar: 4,
-    'data-blah': 5,
+      foo: 3,
+      bar: 4,
+      'data-blah': 5,
   };
   ```
 
@@ -333,7 +329,7 @@ Other Style Guides
     let i;
 
     for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
+        itemsCopy[i] = items[i];
     }
 
     // good
@@ -351,8 +347,8 @@ Other Style Guides
     ```javascript
     // good
     [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
+        const y = x + 1;
+        return x * y;
     });
 
     // good
@@ -361,36 +357,36 @@ Other Style Guides
     // bad
     const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
-      const flatten = memo.concat(item);
-      flat[index] = memo.concat(item);
+        const flatten = memo.concat(item);
+        flat[index] = memo.concat(item);
     });
 
     // good
     const flat = {};
     [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
-      const flatten = memo.concat(item);
-      flat[index] = flatten;
-      return flatten;
+        const flatten = memo.concat(item);
+        flat[index] = flatten;
+        return flatten;
     });
 
     // bad
     inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      } else {
-        return false;
-      }
+        const { subject, author } = msg;
+        if (subject === 'Mockingbird') {
+            return author === 'Harper Lee';
+        } else {
+            return false;
+        }
     });
 
     // good
     inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      }
+        const { subject, author } = msg;
+        if (subject === 'Mockingbird') {
+            return author === 'Harper Lee';
+        }
 
-      return false;
+        return false;
     });
     ```
 
@@ -405,21 +401,21 @@ Other Style Guides
     ```javascript
     // bad
     function getFullName(user) {
-      const firstName = user.firstName;
-      const lastName = user.lastName;
+        const firstName = user.firstName;
+        const lastName = user.lastName;
 
-      return `${firstName} ${lastName}`;
+        return `${firstName} ${lastName}`;
     }
 
     // good
     function getFullName(user) {
-      const { firstName, lastName } = user;
-      return `${firstName} ${lastName}`;
+        const { firstName, lastName } = user;
+        return `${firstName} ${lastName}`;
     }
 
     // best
     function getFullName({ firstName, lastName }) {
-      return `${firstName} ${lastName}`;
+        return `${firstName} ${lastName}`;
     }
     ```
 
@@ -443,8 +439,8 @@ Other Style Guides
     ```javascript
     // bad
     function processInput(input) {
-      // then a miracle occurs
-      return [left, right, top, bottom];
+        // then a miracle occurs
+        return [left, right, top, bottom];
     }
 
     // the caller needs to think about the order of return data
@@ -452,8 +448,8 @@ Other Style Guides
 
     // good
     function processInput(input) {
-      // then a miracle occurs
-      return { left, right, top, bottom };
+        // then a miracle occurs
+        return { left, right, top, bottom };
     }
 
     // the caller selects only the data they need
@@ -475,7 +471,7 @@ Other Style Guides
     const name = 'Capt. Janeway';
     ```
 
-  - [6.2](#6.2) <a name='6.2'></a> Strings that cause the line to go over 100 characters should be written across multiple lines using string concatenation.
+  - [6.2](#6.2) <a name='6.2'></a> Strings that cause the line to go over 120 characters should be written across multiple lines using string concatenation.
   - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
@@ -490,8 +486,8 @@ Other Style Guides
 
     // good
     const errorMessage = 'This is a super long error that was thrown because ' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
-      'with this, you would get nowhere fast.';
+        'of Batman. When you stop to think about how Batman had anything to do ' +
+        'with this, you would get nowhere fast.';
     ```
 
   <a name="es6-template-literals"></a>
@@ -502,22 +498,22 @@ Other Style Guides
     ```javascript
     // bad
     function sayHi(name) {
-      return 'How are you, ' + name + '?';
+        return 'How are you, ' + name + '?';
     }
 
     // bad
     function sayHi(name) {
-      return ['How are you, ', name, '?'].join();
+        return ['How are you, ', name, '?'].join();
     }
 
     // bad
     function sayHi(name) {
-      return `How are you, ${ name }?`;
+        return `How are you, ${ name }?`;
     }
 
     // good
     function sayHi(name) {
-      return `How are you, ${name}?`;
+        return `How are you, ${name}?`;
     }
     ```
   - [6.5](#6.5) <a name='6.5'></a> Never use `eval()` on a string, it opens too many vulnerabilities.
@@ -559,17 +555,17 @@ Other Style Guides
     ```javascript
     // bad
     if (currentUser) {
-      function test() {
-        console.log('Nope.');
-      }
+        function test() {
+            console.log('Nope.');
+        }
     }
 
     // good
     let test;
     if (currentUser) {
-      test = () => {
-        console.log('Yup.');
-      };
+        test = () => {
+            console.log('Yup.');
+        };
     }
     ```
 
@@ -578,12 +574,12 @@ Other Style Guides
     ```javascript
     // bad
     function nope(name, options, arguments) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     function yup(name, options, args) {
-      // ...stuff...
+        // ...stuff...
     }
     ```
 
@@ -595,13 +591,13 @@ Other Style Guides
     ```javascript
     // bad
     function concatenateAll() {
-      const args = Array.prototype.slice.call(arguments);
-      return args.join('');
+        const args = Array.prototype.slice.call(arguments);
+        return args.join('');
     }
 
     // good
     function concatenateAll(...args) {
-      return args.join('');
+        return args.join('');
     }
     ```
 
@@ -611,24 +607,24 @@ Other Style Guides
     ```javascript
     // really bad
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
-      opts = opts || {};
-      // ...
+        // No! We shouldn't mutate function arguments.
+        // Double bad: if opts is falsy it'll be set to an object which may
+        // be what you want but it can introduce subtle bugs.
+        opts = opts || {};
+        // ...
     }
 
     // still bad
     function handleThings(opts) {
-      if (opts === void 0) {
-        opts = {};
-      }
-      // ...
+        if (opts === void 0) {
+            opts = {};
+        }
+        // ...
     }
 
     // good
     function handleThings(opts = {}) {
-      // ...
+        // ...
     }
     ```
 
@@ -640,7 +636,7 @@ Other Style Guides
     var b = 1;
     // bad
     function count(a = b++) {
-      console.log(a);
+        console.log(a);
     }
     count();  // 1
     count();  // 2
@@ -653,12 +649,12 @@ Other Style Guides
     ```javascript
     // bad
     function handleThings(opts = {}, name) {
-      // ...
+        // ...
     }
 
     // good
     function handleThings(name, opts = {}) {
-      // ...
+        // ...
     }
     ```
 
@@ -696,12 +692,12 @@ Other Style Guides
     ```javascript
     // bad
     function f1(obj) {
-      obj.key = 1;
+        obj.key = 1;
     };
 
     // good
     function f2(obj) {
-      const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+        const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
     };
     ```
 
@@ -712,16 +708,16 @@ Other Style Guides
     ```javascript
     // bad
     function f1(a) {
-      a = 1;
+        a = 1;
     }
 
     function f2(a) {
-      if (!a) { a = 1; }
+        if (!a) { a = 1; }
     }
 
     // good
     function f3(a) {
-      const b = a || 1;
+        const b = a || 1;
     }
 
     function f4(a = 1) {
@@ -741,14 +737,14 @@ Other Style Guides
     ```javascript
     // bad
     [1, 2, 3].map(function (x) {
-      const y = x + 1;
-      return x * y;
+        const y = x + 1;
+        return x * y;
     });
 
     // good
-    [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
+    [1, 2, 3].map(x => {
+        const y = x + 1;
+        return x * y;
     });
     ```
 
@@ -764,14 +760,14 @@ Other Style Guides
 
     // bad
     [1, 2, 3].map(number => {
-      const nextNumber = number + 1;
-      `A string containing the ${nextNumber}.`;
+        const nextNumber = number + 1;
+        `A string containing the ${nextNumber}.`;
     });
 
     // good
     [1, 2, 3].map((number) => {
-      const nextNumber = number + 1;
-      return `A string containing the ${nextNumber}.`;
+        const nextNumber = number + 1;
+        return `A string containing the ${nextNumber}.`;
     });
     ```
 
@@ -782,19 +778,19 @@ Other Style Guides
     ```js
     // bad
     [1, 2, 3].map(number => 'As time went by, the string containing the ' +
-      `${number} became much longer. So we needed to break it over multiple ` +
-      'lines.'
+        `${number} became much longer. So we needed to break it over multiple ` +
+        'lines.'
     );
 
     // good
     [1, 2, 3].map(number => (
-      `As time went by, the string containing the ${number} became much ` +
-      'longer. So we needed to break it over multiple lines.'
+        `As time went by, the string containing the ${number} became much ` +
+        'longer. So we needed to break it over multiple lines.'
     ));
     ```
 
 
-  - [8.4](#8.4) <a name='8.4'></a> If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+  - [8.4](#8.4) <a name='8.4'></a> If your function takes a single argument, omit the parentheses. Always include parentheses around multiple arguments. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
 
     > Why? Less visual clutter.
 
@@ -807,20 +803,20 @@ Other Style Guides
 
     // good
     [1, 2, 3].map(number => (
-      `A long string with the ${number}. It’s so long that we’ve broken it ` +
-      'over multiple lines!'
+        `A long string with the ${number}. It’s so long that we’ve broken it ` +
+        'over multiple lines!'
     ));
 
     // bad
-    [1, 2, 3].map(x => {
-      const y = x + 1;
-      return x * y;
+    [1, 2, 3].map((x) => {
+        const y = x + 1;
+        return x * y;
     });
 
     // good
-    [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
+    [1, 2, 3].map(x => {
+        const y = x + 1;
+        return x * y;
     });
     ```
 
@@ -849,25 +845,25 @@ Other Style Guides
     ```javascript
     // bad
     function Queue(contents = []) {
-      this._queue = [...contents];
+        this._queue = [...contents];
     }
     Queue.prototype.pop = function () {
-      const value = this._queue[0];
-      this._queue.splice(0, 1);
-      return value;
+        const value = this._queue[0];
+        this._queue.splice(0, 1);
+        return value;
     }
 
 
     // good
     class Queue {
-      constructor(contents = []) {
-        this._queue = [...contents];
-      }
-      pop() {
-        const value = this._queue[0];
-        this._queue.splice(0, 1);
-        return value;
-      }
+        constructor(contents = []) {
+            this._queue = [...contents];
+        }
+        pop() {
+            const value = this._queue[0];
+            this._queue.splice(0, 1);
+            return value;
+        }
     }
     ```
 
@@ -879,18 +875,18 @@ Other Style Guides
     // bad
     const inherits = require('inherits');
     function PeekableQueue(contents) {
-      Queue.apply(this, contents);
+        Queue.apply(this, contents);
     }
     inherits(PeekableQueue, Queue);
     PeekableQueue.prototype.peek = function () {
-      return this._queue[0];
+        return this._queue[0];
     }
 
     // good
     class PeekableQueue extends Queue {
-      peek() {
-        return this._queue[0];
-      }
+        peek() {
+            return this._queue[0];
+        }
     }
     ```
 
@@ -899,12 +895,12 @@ Other Style Guides
     ```javascript
     // bad
     Jedi.prototype.jump = function () {
-      this.jumping = true;
-      return true;
+        this.jumping = true;
+        return true;
     };
 
     Jedi.prototype.setHeight = function (height) {
-      this.height = height;
+        this.height = height;
     };
 
     const luke = new Jedi();
@@ -913,21 +909,21 @@ Other Style Guides
 
     // good
     class Jedi {
-      jump() {
-        this.jumping = true;
-        return this;
-      }
+        jump() {
+            this.jumping = true;
+            return this;
+        }
 
-      setHeight(height) {
-        this.height = height;
-        return this;
-      }
+        setHeight(height) {
+            this.height = height;
+            return this;
+        }
     }
 
     const luke = new Jedi();
 
     luke.jump()
-      .setHeight(20);
+        .setHeight(20);
     ```
 
 
@@ -935,17 +931,17 @@ Other Style Guides
 
     ```javascript
     class Jedi {
-      constructor(options = {}) {
-        this.name = options.name || 'no name';
-      }
+        constructor(options = {}) {
+            this.name = options.name || 'no name';
+        }
 
-      getName() {
-        return this.name;
-      }
+        getName() {
+            return this.name;
+        }
 
-      toString() {
-        return `Jedi - ${this.getName()}`;
-      }
+        toString() {
+            return `Jedi - ${this.getName()}`;
+        }
     }
     ```
 
@@ -954,26 +950,26 @@ Other Style Guides
     ```javascript
     // bad
     class Jedi {
-      constructor() {}
+        constructor() {}
 
-      getName() {
-        return this.name;
-      }
+        getName() {
+            return this.name;
+        }
     }
 
     // bad
     class Rey extends Jedi {
-      constructor(...args) {
-        super(...args);
-      }
+        constructor(...args) {
+            super(...args);
+        }
     }
 
     // good
     class Rey extends Jedi {
-      constructor(...args) {
-        super(...args);
-        this.name = 'Rey';
-      }
+        constructor(...args) {
+            super(...args);
+            this.name = 'Rey';
+        }
     }
     ```
 
@@ -1041,7 +1037,7 @@ Other Style Guides
     // bad
     let sum = 0;
     for (let num of numbers) {
-      sum += num;
+        sum += num;
     }
 
     sum === 15;
@@ -1069,8 +1065,8 @@ Other Style Guides
 
     ```javascript
     const luke = {
-      jedi: true,
-      age: 28,
+        jedi: true,
+        age: 28,
     };
 
     // bad
@@ -1084,12 +1080,12 @@ Other Style Guides
 
     ```javascript
     const luke = {
-      jedi: true,
-      age: 28,
+        jedi: true,
+        age: 28,
     };
 
     function getProp(prop) {
-      return luke[prop];
+        return luke[prop];
     }
 
     const isJedi = getProp('jedi');
@@ -1164,35 +1160,47 @@ Other Style Guides
     ```javascript
     // bad - unnecessary function call
     function checkName(hasName) {
-      const name = getName();
+        const name = getName();
 
-      if (hasName === 'test') {
-        return false;
-      }
+        if (hasName === 'test') {
+            return false;
+        }
 
-      if (name === 'test') {
-        this.setName('');
-        return false;
-      }
+        if (name === 'test') {
+            this.setName('');
+            return false;
+        }
 
-      return name;
+        return name;
     }
 
     // good
     function checkName(hasName) {
-      if (hasName === 'test') {
-        return false;
-      }
+        if (hasName === 'test') {
+            return false;
+        }
 
-      const name = getName();
+        const name = getName();
+  
+        if (name === 'test') {
+            this.setName('');
+            return false;
+        }
 
-      if (name === 'test') {
-        this.setName('');
-        return false;
-      }
-
-      return name;
+        return name;
     }
+    ```
+
+  - [13.5](#13.5) <a name='13.5'></a> Use assignment operator shorthands where possible. eslint: [`operator-assignment`](http://eslint.org/docs/rules/operator-assignment.html)
+
+    > Why? This improves readability, makes it more clear what the expression actually does and eliminates repeated expressions in case of long object property chains.
+
+    ```javascript
+    // bad
+    foo.bar.blubb = foo.bar.blubb + 1;
+
+    // good
+    foo.bar.blubb += 1;
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1206,7 +1214,7 @@ Other Style Guides
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+        console.log(notDefined); // => throws a ReferenceError
     }
 
     // creating a variable declaration after you
@@ -1214,24 +1222,24 @@ Other Style Guides
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
     function example() {
-      console.log(declaredButNotAssigned); // => undefined
-      var declaredButNotAssigned = true;
+        console.log(declaredButNotAssigned); // => undefined
+        var declaredButNotAssigned = true;
     }
 
     // the interpreter is hoisting the variable
     // declaration to the top of the scope,
     // which means our example could be rewritten as:
     function example() {
-      let declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => undefined
-      declaredButNotAssigned = true;
+        let declaredButNotAssigned;
+        console.log(declaredButNotAssigned); // => undefined
+        declaredButNotAssigned = true;
     }
 
     // using const and let
     function example() {
-      console.log(declaredButNotAssigned); // => throws a ReferenceError
-      console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
-      const declaredButNotAssigned = true;
+        console.log(declaredButNotAssigned); // => throws a ReferenceError
+        console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
+        const declaredButNotAssigned = true;
     }
     ```
 
@@ -1239,13 +1247,13 @@ Other Style Guides
 
     ```javascript
     function example() {
-      console.log(anonymous); // => undefined
+        console.log(anonymous); // => undefined
 
-      anonymous(); // => TypeError anonymous is not a function
+        anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function () {
-        console.log('anonymous function expression');
-      };
+        var anonymous = function () {
+            console.log('anonymous function expression');
+        };
     }
     ```
 
@@ -1253,27 +1261,27 @@ Other Style Guides
 
     ```javascript
     function example() {
-      console.log(named); // => undefined
+        console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+        named(); // => TypeError named is not a function
 
-      superPower(); // => ReferenceError superPower is not defined
+        superPower(); // => ReferenceError superPower is not defined
 
-      var named = function superPower() {
-        console.log('Flying');
-      };
+        var named = function superPower() {
+            console.log('Flying');
+        };
     }
 
     // the same is true when the function name
     // is the same as the variable name.
     function example() {
-      console.log(named); // => undefined
+        console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+        named(); // => TypeError named is not a function
 
-      var named = function named() {
-        console.log('named');
-      }
+        var named = function named() {
+            console.log('named');
+        }
     }
     ```
 
@@ -1281,11 +1289,11 @@ Other Style Guides
 
     ```javascript
     function example() {
-      superPower(); // => Flying
+        superPower(); // => Flying
 
-      function superPower() {
-        console.log('Flying');
-      }
+        function superPower() {
+            console.log('Flying');
+        }
     }
     ```
 
@@ -1296,7 +1304,24 @@ Other Style Guides
 
 ## Comparison Operators & Equality
 
-  - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`. eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+  - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`, except for comparisons with `null` (or `undefined`). eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+
+    ```
+    // bad
+    if (name == 'John') {
+        // ...stuff...
+    }
+
+    // good
+    if (name === 'John') {
+        // ...stuff...
+    }
+
+    // good
+    if (name == null) {
+        // ...stuff...
+    }
+    ```
 
   - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
@@ -1309,8 +1334,8 @@ Other Style Guides
 
     ```javascript
     if ([0] && []) {
-      // true
-      // an array (even an empty one) is an object, objects will evaluate to true
+        // true
+        // an array (even an empty one) is an object, objects will evaluate to true
     }
     ```
 
@@ -1319,22 +1344,22 @@ Other Style Guides
     ```javascript
     // bad
     if (name !== '') {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     if (name) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // bad
     if (collection.length > 0) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     if (collection.length) {
-      // ...stuff...
+        // ...stuff...
     }
     ```
 
@@ -1348,39 +1373,39 @@ Other Style Guides
     ```javascript
     // bad
     switch (foo) {
-      case 1:
-        let x = 1;
-        break;
-      case 2:
-        const y = 2;
-        break;
-      case 3:
-        function f() {}
-        break;
-      default:
-        class C {}
+        case 1:
+            let x = 1;
+            break;
+        case 2:
+            const y = 2;
+            break;
+        case 3:
+            function f() {}
+            break;
+        default:
+            class C {}
     }
 
     // good
     switch (foo) {
-      case 1: {
-        let x = 1;
-        break;
-      }
-      case 2: {
-        const y = 2;
-        break;
-      }
-      case 3: {
-        function f() {}
-        break;
-      }
-      case 4:
-        bar();
-        break;
-      default: {
-        class C {}
-      }
+        case 1: {
+            let x = 1;
+            break;
+        }
+        case 2: {
+            const y = 2;
+            break;
+        }
+        case 3: {
+            function f() {}
+            break;
+        }
+        case 4:
+            bar();
+            break;
+        default: {
+            class C {}
+        }
     }
     ```
 
@@ -1391,15 +1416,15 @@ Other Style Guides
     ```javascript
     // bad
     const foo = maybe1 > maybe2
-      ? "bar"
-      : value1 > value2 ? "baz" : null;
+        ? "bar"
+        : value1 > value2 ? "baz" : null;
 
     // better
     const maybeNull = value1 > value2 ? 'baz' : null;
 
     const foo = maybe1 > maybe2
-      ? 'bar'
-      : maybeNull;
+        ? 'bar'
+        : maybeNull;
 
     // best
     const maybeNull = value1 > value2 ? 'baz' : null;
@@ -1428,19 +1453,31 @@ Other Style Guides
 
 ## Blocks
 
-  - [16.1](#16.1) <a name='16.1'></a> Use braces with all multi-line blocks.
+  - [16.1](#16.1) <a name='16.1'></a> Use braces consistently with all multi-line blocks.
 
     ```javascript
     // bad
     if (test)
-      return false;
+        return false;
 
     // good
     if (test) return false;
 
     // good
     if (test) {
-      return false;
+        return false;
+    }
+    
+    // bad
+    if (test) {
+        doThis();
+    } else doThat();
+    
+    // good
+    if (test) {
+        doThis();
+    } else {
+        doThat();
     }
 
     // bad
@@ -1448,7 +1485,7 @@ Other Style Guides
 
     // good
     function bar() {
-      return false;
+        return false;
     }
     ```
 
@@ -1458,22 +1495,21 @@ Other Style Guides
     ```javascript
     // bad
     if (test) {
-      thing1();
-      thing2();
+        thing1();
+        thing2();
     }
     else {
-      thing3();
+        thing3();
     }
 
     // good
     if (test) {
-      thing1();
-      thing2();
+        thing1();
+        thing2();
     } else {
-      thing3();
+        thing3();
     }
     ```
-
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1491,9 +1527,9 @@ Other Style Guides
     // @return {Element} element
     function make(tag) {
 
-      // ...stuff...
+        // ...stuff...
 
-      return element;
+        return element;
     }
 
     // good
@@ -1506,9 +1542,9 @@ Other Style Guides
      */
     function make(tag) {
 
-      // ...stuff...
+        // ...stuff...
 
-      return element;
+        return element;
     }
     ```
 
@@ -1524,29 +1560,29 @@ Other Style Guides
 
     // bad
     function getType() {
-      console.log('fetching type...');
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
+        console.log('fetching type...');
+        // set the default type to 'no type'
+        const type = this._type || 'no type';
 
-      return type;
+        return type;
     }
 
     // good
     function getType() {
-      console.log('fetching type...');
+        console.log('fetching type...');
 
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
+        // set the default type to 'no type'
+        const type = this._type || 'no type';
 
-      return type;
+        return type;
     }
 
     // also good
     function getType() {
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
+        // set the default type to 'no type'
+        const type = this._type || 'no type';
 
-      return type;
+        return type;
     }
     ```
 
@@ -1556,12 +1592,12 @@ Other Style Guides
 
     ```javascript
     class Calculator extends Abacus {
-      constructor() {
-        super();
+        constructor() {
+            super();
 
-        // FIXME: shouldn't use a global here
-        total = 0;
-      }
+            // FIXME: shouldn't use a global here
+            total = 0;
+        }
     }
     ```
 
@@ -1569,12 +1605,12 @@ Other Style Guides
 
     ```javascript
     class Calculator extends Abacus {
-      constructor() {
-        super();
+        constructor() {
+            super();
 
-        // TODO: total should be configurable by an options param
-        this.total = 0;
-      }
+            // TODO: total should be configurable by an options param
+            this.total = 0;
+        }
     }
     ```
 
@@ -1583,22 +1619,22 @@ Other Style Guides
 
 ## Whitespace
 
-  - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
+  - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 4 spaces. eslint: [`indent`](http://eslint.org/docs/rules/indent.html) jscs: [`validateIndentation`](http://jscs.info/rule/validateIndentation)
 
     ```javascript
     // bad
     function foo() {
-    ∙∙∙∙const name;
+    ∙∙const name;
     }
 
     // bad
     function bar() {
-    ∙const name;
+    ∙∙∙∙∙∙const name;
     }
 
     // good
     function baz() {
-    ∙∙const name;
+    ∙∙∙∙const name;
     }
     ```
 
@@ -1607,24 +1643,24 @@ Other Style Guides
     ```javascript
     // bad
     function test(){
-      console.log('test');
+        console.log('test');
     }
 
     // good
     function test() {
-      console.log('test');
+        console.log('test');
     }
 
     // bad
     dog.set('attr',{
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
+        age: '1 year',
+        breed: 'Bernese Mountain Dog',
     });
 
     // good
     dog.set('attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
+        age: '1 year',
+        breed: 'Bernese Mountain Dog',
     });
     ```
 
@@ -1633,22 +1669,22 @@ Other Style Guides
     ```javascript
     // bad
     if(isJedi) {
-      fight ();
+        fight ();
     }
 
     // good
     if (isJedi) {
-      fight();
+        fight();
     }
 
     // bad
     function fight () {
-      console.log ('Swooosh!');
+        console.log ('Swooosh!');
     }
 
     // good
     function fight() {
-      console.log('Swooosh!');
+        console.log('Swooosh!');
     }
     ```
 
@@ -1667,14 +1703,14 @@ Other Style Guides
     ```javascript
     // bad
     (function (global) {
-      // ...stuff...
+        // ...stuff...
     })(this);
     ```
 
     ```javascript
     // bad
     (function (global) {
-      // ...stuff...
+        // ...stuff...
     })(this);↵
     ↵
     ```
@@ -1682,12 +1718,12 @@ Other Style Guides
     ```javascript
     // good
     (function (global) {
-      // ...stuff...
+        // ...stuff...
     })(this);↵
     ```
 
   - [18.6](#18.6) <a name='18.6'></a> Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
+    emphasizes that the line is a method call, not a new statement. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property) [`dot-location`](http://eslint.org/docs/rules/dot-location)
 
     ```javascript
     // bad
@@ -1695,19 +1731,19 @@ Other Style Guides
 
     // bad
     $('#items').
-      find('.selected').
-        highlight().
-        end().
-      find('.open').
-        updateCount();
+        find('.selected').
+            highlight().
+            end().
+        find('.open').
+            updateCount();
 
     // good
     $('#items')
-      .find('.selected')
-        .highlight()
-        .end()
-      .find('.open')
-        .updateCount();
+        .find('.selected')
+            .highlight()
+            .end()
+        .find('.open')
+            .updateCount();
 
     // bad
     const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
@@ -1717,13 +1753,13 @@ Other Style Guides
 
     // good
     const leds = stage.selectAll('.led')
-        .data(data)
-      .enter().append('svg:svg')
-        .classed('led', true)
-        .attr('width', (radius + margin) * 2)
-      .append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-        .call(tron.led);
+            .data(data)
+        .enter().append('svg:svg')
+            .classed('led', true)
+            .attr('width', (radius + margin) * 2)
+        .append('svg:g')
+            .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+            .call(tron.led);
 
     // good
     const leds = stage.selectAll('.led').data(data);
@@ -1734,53 +1770,53 @@ Other Style Guides
     ```javascript
     // bad
     if (foo) {
-      return bar;
+        return bar;
     }
     return baz;
 
     // good
     if (foo) {
-      return bar;
+        return bar;
     }
 
     return baz;
 
     // bad
     const obj = {
-      foo() {
-      },
-      bar() {
-      },
+        foo() {
+        },
+        bar() {
+        },
     };
     return obj;
 
     // good
     const obj = {
-      foo() {
-      },
+        foo() {
+        },
 
-      bar() {
-      },
+        bar() {
+        },
     };
 
     return obj;
 
     // bad
     const arr = [
-      function foo() {
-      },
-      function bar() {
-      },
+        function foo() {
+        },
+        function bar() {
+        },
     ];
     return arr;
 
     // good
     const arr = [
-      function foo() {
-      },
+        function foo() {
+        },
 
-      function bar() {
-      },
+        function bar() {
+        },
     ];
 
     return arr;
@@ -1792,29 +1828,29 @@ Other Style Guides
     // bad
     function bar() {
 
-      console.log(foo);
+        console.log(foo);
 
     }
 
     // also bad
     if (baz) {
 
-      console.log(qux);
+        console.log(qux);
     } else {
-      console.log(foo);
+        console.log(foo);
 
     }
 
     // good
     function bar() {
-      console.log(foo);
+        console.log(foo);
     }
 
     // good
     if (baz) {
-      console.log(qux);
+        console.log(qux);
     } else {
-      console.log(foo);
+        console.log(foo);
     }
     ```
 
@@ -1823,22 +1859,22 @@ Other Style Guides
     ```javascript
     // bad
     function bar( foo ) {
-      return foo;
+        return foo;
     }
 
     // good
     function bar(foo) {
-      return foo;
+        return foo;
     }
 
     // bad
     if ( foo ) {
-      console.log(foo);
+        console.log(foo);
     }
 
     // good
     if (foo) {
-      console.log(foo);
+        console.log(foo);
     }
     ```
 
@@ -1877,16 +1913,16 @@ Other Style Guides
 
     // good
     const foo = 'Whatever national crop flips the window. The cartoon reverts within the screw. ' +
-      'Whatever wizard constrains a helpful ally. The counterpart ascends!';
+        'Whatever wizard constrains a helpful ally. The counterpart ascends!';
 
     // good
     $.ajax({
-      method: 'POST',
-      url: 'https://airbnb.com/',
-      data: { name: 'John' },
+        method: 'POST',
+        url: 'https://airbnb.com/',
+        data: { name: 'John' },
     })
-      .done(() => console.log('Congratulations!'))
-      .fail(() => console.log('You have failed this city.'));
+        .done(() => console.log('Congratulations!'))
+        .fail(() => console.log('You have failed this city.'));
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1905,25 +1941,25 @@ Other Style Guides
 
     // good
     const story = [
-      once,
-      upon,
-      aTime,
+        once,
+        upon,
+        aTime,
     ];
 
     // bad
     const hero = {
-        firstName: 'Ada'
-      , lastName: 'Lovelace'
-      , birthYear: 1815
-      , superPower: 'computers'
+          firstName: 'Ada'
+        , lastName: 'Lovelace'
+        , birthYear: 1815
+        , superPower: 'computers'
     };
 
     // good
     const hero = {
-      firstName: 'Ada',
-      lastName: 'Lovelace',
-      birthYear: 1815,
-      superPower: 'computers',
+        firstName: 'Ada',
+        lastName: 'Lovelace',
+        birthYear: 1815,
+        superPower: 'computers',
     };
     ```
 
@@ -1949,24 +1985,24 @@ Other Style Guides
 
     // bad
     const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully'
+        firstName: 'Dana',
+        lastName: 'Scully'
     };
 
     const heroes = [
-      'Batman',
-      'Superman'
+        'Batman',
+        'Superman'
     ];
 
     // good
     const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully',
+        firstName: 'Dana',
+        lastName: 'Scully',
     };
 
     const heroes = [
-      'Batman',
-      'Superman',
+        'Batman',
+        'Superman',
     ];
     ```
 
@@ -1980,20 +2016,20 @@ Other Style Guides
     ```javascript
     // bad
     (function () {
-      const name = 'Skywalker'
-      return name
+        const name = 'Skywalker'
+        return name
     })()
 
     // good
     (() => {
-      const name = 'Skywalker';
-      return name;
+        const name = 'Skywalker';
+        return name;
     }());
 
     // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
     ;(() => {
-      const name = 'Skywalker';
-      return name;
+        const name = 'Skywalker';
+        return name;
     }());
     ```
 
@@ -2086,12 +2122,12 @@ Other Style Guides
     ```javascript
     // bad
     function q() {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     function query() {
-      // ..stuff..
+        // ..stuff..
     }
     ```
 
@@ -2113,22 +2149,22 @@ Other Style Guides
     ```javascript
     // bad
     function user(options) {
-      this.name = options.name;
+        this.name = options.name;
     }
 
     const bad = new user({
-      name: 'nope',
+        name: 'nope',
     });
 
     // good
     class User {
-      constructor(options) {
-        this.name = options.name;
-      }
+        constructor(options) {
+            this.name = options.name;
+        }
     }
 
     const good = new User({
-      name: 'yup',
+        name: 'yup',
     });
     ```
 
@@ -2148,25 +2184,25 @@ Other Style Guides
     ```javascript
     // bad
     function foo() {
-      const self = this;
-      return function () {
-        console.log(self);
-      };
+        const self = this;
+        return function () {
+            console.log(self);
+        };
     }
 
     // bad
     function foo() {
-      const that = this;
-      return function () {
-        console.log(that);
-      };
+        const that = this;
+        return function () {
+            console.log(that);
+        };
     }
 
     // good
     function foo() {
-      return () => {
-        console.log(this);
-      };
+        return () => {
+            console.log(this);
+        };
     }
     ```
 
@@ -2175,7 +2211,7 @@ Other Style Guides
     ```javascript
     // file contents
     class CheckBox {
-      // ...
+        // ...
     }
     export default CheckBox;
 
@@ -2203,8 +2239,8 @@ Other Style Guides
 
     ```javascript
     const AirbnbStyleGuide = {
-      es6: {
-      }
+        es6: {
+        }
     };
 
     export default AirbnbStyleGuide;
@@ -2238,12 +2274,12 @@ Other Style Guides
     ```javascript
     // bad
     if (!dragon.age()) {
-      return false;
+        return false;
     }
 
     // good
     if (!dragon.hasAge()) {
-      return false;
+        return false;
     }
     ```
 
@@ -2251,18 +2287,18 @@ Other Style Guides
 
     ```javascript
     class Jedi {
-      constructor(options = {}) {
-        const lightsaber = options.lightsaber || 'blue';
-        this.set('lightsaber', lightsaber);
-      }
+        constructor(options = {}) {
+            const lightsaber = options.lightsaber || 'blue';
+            this.set('lightsaber', lightsaber);
+        }
 
-      set(key, val) {
-        this[key] = val;
-      }
+        set(key, val) {
+            this[key] = val;
+        }
 
-      get(key) {
-        return this[key];
-      }
+        get(key) {
+            return this[key];
+        }
     }
     ```
 
@@ -2280,7 +2316,7 @@ Other Style Guides
     ...
 
     $(this).on('listingUpdated', (e, listingId) => {
-      // do something with listingId
+        // do something with listingId
     });
     ```
 
@@ -2293,7 +2329,7 @@ Other Style Guides
     ...
 
     $(this).on('listingUpdated', (e, data) => {
-      // do something with data.listingId
+        // do something with data.listingId
     });
     ```
 
@@ -2320,25 +2356,25 @@ Other Style Guides
     ```javascript
     // bad
     function setSidebar() {
-      $('.sidebar').hide();
+        $('.sidebar').hide();
 
-      // ...stuff...
+        // ...stuff...
 
-      $('.sidebar').css({
-        'background-color': 'pink'
-      });
+        $('.sidebar').css({
+            'background-color': 'pink'
+        });
     }
 
     // good
     function setSidebar() {
-      const $sidebar = $('.sidebar');
-      $sidebar.hide();
+        const $sidebar = $('.sidebar');
+        $sidebar.hide();
 
-      // ...stuff...
+        // ...stuff...
 
-      $sidebar.css({
-        'background-color': 'pink'
-      });
+        $sidebar.css({
+            'background-color': 'pink'
+        });
     }
     ```
 
@@ -2397,7 +2433,7 @@ Other Style Guides
 
     ```javascript
     function foo() {
-      return true;
+        return true;
     }
     ```
 
@@ -2639,5 +2675,3 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ## Amendments
 
 We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
-
-# };
