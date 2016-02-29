@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-25th",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "description": "25th-floor's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
